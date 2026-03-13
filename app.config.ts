@@ -6,6 +6,7 @@ const NAME = 'Vip-Online';
 const config: ExpoConfig = {
   name: NAME,
   slug: NAME,
+  scheme: 'viponline',
   version: '1.0.0',
   orientation: 'portrait',
   icon: './assets/icon.png',
