@@ -1,7 +1,7 @@
 # Vip-Online Expo App
 
 ## Summary
-This repository contains an Expo React Native app scaffolded for YipOnline’s case study. It implements a simple product uploader with a hard limit of 5 products, local notifications on limit, and a clean Tailwind-powered UI.
+This repository contains an Expo React Native app scaffolded for YipOnline’s case study. It implements a product uploader with a hard limit of 5 products, local notifications on limit, and a clean Tailwind-powered UI with grid/list layouts and editing capabilities.
 
 ## What Was Implemented
 - Expo Router set up with typed routes and root providers (Auth, Query, Toast).
@@ -20,15 +20,18 @@ This repository contains an Expo React Native app scaffolded for YipOnline’s c
 
 ## Case Study Feature
 ### Products Screen ([app/index.tsx](./app/index.tsx))
-- Add product: name (required), price (required, decimal), photo (optional).
-- Limit enforcement at 5 products; “Add” button disables at limit.
-- Local notification triggered when the 5th product is added.
-- Products persisted across restarts; remove product option included.
+- **Add Product**: Form with validation (name required, price required/decimal) and photo picker.
+- **View Options**: Toggle between List (single column) and Grid (two columns) layouts.
+- **Edit Product**: Modal to update name, price, and photo for existing items.
+- **Limit Enforcement**: Maximum of 5 products; “Add” button disables at limit.
+- **Notifications**: Local notification triggered when the 5th product is added.
+- **Persistence**: Products saved locally via AsyncStorage; persist across app restarts.
 
 ### Store ([src/store/products.ts](./src/store/products.ts))
 - Persists products in AsyncStorage with Zustand `persist`.
 - API:
   - `addProduct({ name, price, imageUri })`
+  - `updateProduct(id, { name, price, imageUri })`
   - `removeProduct(id)`
   - `clearAll()`
 - Constant: `MAX_PRODUCTS = 5`
@@ -68,4 +71,3 @@ This repository contains an Expo React Native app scaffolded for YipOnline’s c
 ## Notes
 - If Tailwind classes don’t apply immediately after changes, refresh the app; NativeWind hot-reload can occasionally require a manual reload.
 - Linking scheme is set; deep linking can be configured later for universal links/app links.
-
