@@ -28,10 +28,9 @@ api.interceptors.request.use(async (config) => {
     await loadAuthToken();
   }
   if (token) {
-    config.headers = {
-      ...(config.headers || {}),
-      Authorization: `Bearer ${token}`,
-    };
+    config.headers = config.headers || {};
+    // @ts-expect-error axios types allow string assignment here
+    config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
