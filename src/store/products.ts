@@ -18,6 +18,7 @@ type State = {
 
 type Actions = {
   addProduct: (p: Omit<Product, 'id' | 'createdAt'>) => { ok: boolean; reason?: string };
+  updateProduct: (id: string, updates: Partial<Omit<Product, 'id' | 'createdAt'>>) => void;
   removeProduct: (id: string) => void;
   clearAll: () => void;
 };
@@ -44,6 +45,13 @@ export const useProductsStore = create<State & Actions>()(
         };
         set({ products: [next, ...list] });
         return { ok: true };
+      },
+      updateProduct: (id, updates) => {
+        set({
+          products: get().products.map((p) =>
+            p.id === id ? { ...p, ...updates, name: updates.name ? updates.name.trim() : p.name } : p
+          ),
+        });
       },
       removeProduct: (id) => {
         set({ products: get().products.filter((x) => x.id !== id) });
