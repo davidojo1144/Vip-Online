@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title></title><meta charset="utf-[12:02:17] generating HTML from docs/case-study.md [completed]
+<!DOCTYPE html><html><head><title></title><meta charset="utf-[12:17:08] generating HTML from docs/case-study.md [completed]
 0%;
 }
 
@@ -262,7 +262,13 @@ code.hljs {
 <h2 id="architecture">Architecture</h2>
 <ul>
 <li>Store: <code>src/store/products.ts</code> keeps a persisted list of products and enforces <code>MAX_PRODUCTS = 5</code>.</li>
-<li>UI: <code>app/index.tsx</code> is a single-screen flow with an add form, list view, and delete actions.</li>
+<li>UI: <code>app/index.tsx</code> is a single-screen flow with:<ul>
+<li>Add Product form</li>
+<li>Grid/List toggle view</li>
+<li>Product list/grid</li>
+<li>Edit Modal (<code>src/components/EditProductModal.tsx</code>)</li>
+</ul>
+</li>
 <li>Notifications: <code>src/lib/notifications.ts</code> requests permissions and schedules a local notification on limit.</li>
 <li>Styling: Tailwind classes via NativeWind with <code>global.css</code> and Metro integration in <code>metro.config.js</code>.</li>
 </ul>
@@ -275,7 +281,7 @@ code.hljs {
   <span class="hljs-attr">createdAt</span>: <span class="hljs-built_in">number</span>;
 };
 </code></pre>
-<p>Actions: <code>addProduct</code>, <code>removeProduct</code>, <code>clearAll</code>. Persistence key: <code>vip-products</code>.</p>
+<p>Actions: <code>addProduct</code>, <code>updateProduct</code>, <code>removeProduct</code>, <code>clearAll</code>. Persistence key: <code>vip-products</code>.</p>
 <h2 id="limit-enforcement--notification">Limit Enforcement + Notification</h2>
 <ul>
 <li>The store blocks <code>addProduct</code> when <code>products.length &gt;= 5</code>.</li>
@@ -298,6 +304,7 @@ code.hljs {
 <h2 id="files-of-interest">Files of Interest</h2>
 <ul>
 <li><code>app/index.tsx</code>: Product form and list</li>
+<li><code>src/components/EditProductModal.tsx</code>: Modal for editing product details</li>
 <li><code>src/store/products.ts</code>: State and limit logic</li>
 <li><code>src/lib/notifications.ts</code>: Permission and scheduling</li>
 <li><code>global.css</code>, <code>metro.config.js</code>, <code>babel.config.js</code>, <code>tailwind.config.js</code>: Styling/plumbing</li>
@@ -312,7 +319,6 @@ code.hljs {
 </ul>
 <h2 id="future-enhancements">Future Enhancements</h2>
 <ul>
-<li>Edit product details</li>
 <li>Sort and search</li>
 <li>Image capture via camera</li>
 <li>Sync to backend with Axios and React Query</li>
