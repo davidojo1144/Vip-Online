@@ -50,7 +50,9 @@
     "eslint": "9.39.4",
     "eslint-config-expo": "55.0.0",
     "eslint-config-universe": "15.0.3",
+    "md-to-pdf": "5.2.5",
     "prettier": "3.8.1",
+    "puppeteer": "24.39.1",
     "typescript": "~5.9.2"
   },
   "private": true
