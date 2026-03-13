@@ -4,9 +4,18 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
-    "types": ["expo-router/types", "nativewind/types"]
+    "types": [
+      "expo-router/types",
+      "nativewind/types"
+    ]
   },
-  "include": ["./app", "./src"]
+  "include": [
+    "./app",
+    "./src",
+    "nativewind-env.d.ts"
+  ]
 }

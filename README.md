@@ -1,4 +1,4 @@
-# Vip-Online Expo App
+# Yip-Online Expo App
 
 ## Summary
 This repository contains an Expo React Native app scaffolded for YipOnline’s case study. It implements a product uploader with a hard limit of 5 products, local notifications on limit, and a clean Tailwind-powered UI with grid/list layouts and editing capabilities.
